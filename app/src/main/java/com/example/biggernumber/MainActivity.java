@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    int num,num2;
-
+    int num,num2; //i created
     public void initial_startup(View view)
     {
         TextView tv=this.findViewById(R.id.button);
@@ -71,28 +70,41 @@ public class MainActivity extends AppCompatActivity {
         tv2.setText(Integer.toString(num2));
     }
 
-    int score=0;
+    int score=0;//i created
+    int lives=5;//i created
 
     public void bigger_clicked(View view)
     {
         TextView tv3=this.findViewById(R.id.textView1);
         TextView tv4=this.findViewById(R.id.scoreField);
+        TextView tv5=this.findViewById(R.id.livesField);
 
-        if (view.getId() == R.id.button) {
-            if (num > num2) {
-                tv3.setText("Congratulations");
-                score++;
-                //correct so "congratulations"
-            }else {
-                tv3.setText("Incorrect");
-            }
-        }else if (view.getId() == R.id.button2){
-            if (num2>num){
-                tv3.setText("Congratulations");
-                score++;
-                //correct so "congratulations"
-            }else{
-                tv3.setText("Incorrect");
+
+        if(lives<1){
+            //game over
+            tv3.setText("GAME OVER!");
+        }else{
+            tv5.setText(Integer.toString(lives));//initially sets lives to 5 (or maximum lives)
+            if (view.getId() == R.id.button) {
+                if (num > num2) {
+                    tv3.setText("Congratulations");
+                    score++;
+                    //correct so "congratulations"
+                }else {
+                    tv3.setText("Incorrect");
+                    lives--;
+                    tv5.setText(Integer.toString(lives));
+                }
+            }else if (view.getId() == R.id.button2){
+                if (num2>num){
+                    tv3.setText("Congratulations");
+                    score++;
+                    //correct so "congratulations"
+                }else{
+                    tv3.setText("Incorrect");
+                    lives--;
+                    tv5.setText(Integer.toString(lives));
+                }
             }
         }
         tv4.setText(Integer.toString(score));
