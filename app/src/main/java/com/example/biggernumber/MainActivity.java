@@ -71,5 +71,24 @@ public class MainActivity extends AppCompatActivity {
         tv2.setText(Integer.toString(num2));
     }
 
-    
+    public void bigger_clicked(View view)
+    {
+        TextView tv3=this.findViewById(R.id.textView1);
+
+        if (view.getId() == R.id.button) {
+            if (num > num2) {
+                tv3.setText("Congratulations");
+                //correct so "congratulations"
+            }else {
+                tv3.setText("Incorrect");
+            }
+        }else if (view.getId() == R.id.button2){
+            if (num2>num){
+                tv3.setText("Congratulations");
+                //correct so "congratulations"
+            }else{
+                tv3.setText("Incorrect");
+            }
+        }
+    }
 }
