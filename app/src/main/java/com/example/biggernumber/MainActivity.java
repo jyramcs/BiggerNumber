@@ -71,13 +71,17 @@ public class MainActivity extends AppCompatActivity {
         tv2.setText(Integer.toString(num2));
     }
 
+    int score=0;
+
     public void bigger_clicked(View view)
     {
         TextView tv3=this.findViewById(R.id.textView1);
+        TextView tv4=this.findViewById(R.id.scoreField);
 
         if (view.getId() == R.id.button) {
             if (num > num2) {
                 tv3.setText("Congratulations");
+                score++;
                 //correct so "congratulations"
             }else {
                 tv3.setText("Incorrect");
@@ -85,10 +89,12 @@ public class MainActivity extends AppCompatActivity {
         }else if (view.getId() == R.id.button2){
             if (num2>num){
                 tv3.setText("Congratulations");
+                score++;
                 //correct so "congratulations"
             }else{
                 tv3.setText("Incorrect");
             }
         }
+        tv4.setText(Integer.toString(score));
     }
 }
